@@ -16,9 +16,9 @@ namespace NEC
         public static SQLiteConnection m_dbConnection;
         public void DatabaseConnect()
         {
-            m_dbConnection = new SQLiteConnection("Data Source="+Application.StartupPath.ToString()+"\\DB\\DatabaseName.db;Version=3;");
-            //m_dbConnection = new SQLiteConnection("Data Source=C:\\NEC\\DB\\DatabaseName.db;Version=3;");
-            MessageBox.Show("Data Source=" + Application.StartupPath.ToString() + "\\DB\\DatabaseName.db;Version=3;");
+            //m_dbConnection = new SQLiteConnection("Data Source="+Application.StartupPath.ToString()+"\\DB\\DatabaseName.db;Version=3;");
+            m_dbConnection = new SQLiteConnection("Data Source=C:\\NEC\\DB\\DatabaseName.db;Version=3;");
+            //MessageBox.Show("Data Source=" + Application.StartupPath.ToString() + "\\DB\\DatabaseName.db;Version=3;");
             m_dbConnection.Open();
         }
         public MainScreen()

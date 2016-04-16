@@ -1,2 +1,2 @@
 # NEC
-C# Form app with sqlite
+Basic C# Form App 
