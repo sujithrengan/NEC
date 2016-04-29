@@ -71,7 +71,9 @@ namespace NEC
             int amt = 0;
             int id = 0; 
             int type=1;
-            string date="";
+            bool c = checkBox1.Checked;
+            
+            string date="",remarks="";
             string cust_name = ds.Tables[0].Rows[comboBox1.SelectedIndex]["Name"].ToString();
             int cust_id=Int32.Parse(ds.Tables[0].Rows[comboBox1.SelectedIndex]["ID"].ToString());
             if(textBox2.Text.ToString()!="")
@@ -86,23 +88,59 @@ namespace NEC
             date = dateTimePicker1.Value.ToString("yyyy-MM-dd");
 
             amt = (amt * type);
-            string sql = "insert into Transactions values (" + id + ",'" + cust_name  + "'," + (amt) + "," + type + ","+cust_id+",'"+date+"','"+ds2.Tables[0].Rows[comboBox3.SelectedIndex]["Name"].ToString()+"')";
-            SQLiteCommand command = new SQLiteCommand(sql, MainScreen.m_dbConnection);
-            command.ExecuteNonQuery();
+            remarks = textBox3.Text;
 
-            sql = "select Total from Customers where ID="+cust_id+"";
-            command = new SQLiteCommand(sql, MainScreen.m_dbConnection);
-            SQLiteDataReader reader = command.ExecuteReader();
+            string sql;
+            SQLiteCommand command;
+            //if (id != 0)
+            //{
+                try
+                {
+                    sql = "insert into Transactions values (" + id + ",'" + cust_name + "'," + (amt) + "," + type + "," + cust_id + ",'" + date + "','" + ds2.Tables[0].Rows[comboBox3.SelectedIndex]["Name"].ToString() + "','"+remarks+"')";
+                    command= new SQLiteCommand(sql, MainScreen.m_dbConnection);
+                    command.ExecuteNonQuery();
 
-            reader.Read();
-            int total = Int32.Parse(reader["Total"].ToString());
+                    if (c == true && type == 1)
+                    {
+                        sql = "insert into Transactions values (0,'" + cust_name + "'," + (-1 * amt) + ",-1," + cust_id + ",'" + date + "','" + ds2.Tables[0].Rows[comboBox3.SelectedIndex]["Name"].ToString() + "','CashTransaction')";
+                        command = new SQLiteCommand(sql, MainScreen.m_dbConnection);
+                        command.ExecuteNonQuery();
 
-            total += amt;
+                    }
 
-            sql = "update Customers set Total=" + total + " where ID=" + cust_id + "";
-            command = new SQLiteCommand(sql, MainScreen.m_dbConnection);
-            command.ExecuteNonQuery();
-            this.Close();
+                    else if(c==false)
+                    {
+                        sql = "select Total from Customers where ID=" + cust_id + "";
+                        command = new SQLiteCommand(sql, MainScreen.m_dbConnection);
+                        SQLiteDataReader reader = command.ExecuteReader();
+
+                        reader.Read();
+                        int total = Int32.Parse(reader["Total"].ToString());
+
+                        total += amt;
+
+                        sql = "update Customers set Total=" + total + " where ID=" + cust_id + "";
+                        command = new SQLiteCommand(sql, MainScreen.m_dbConnection);
+                        command.ExecuteNonQuery();
+
+                    }
+
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ID ALready Exists");
+                }
+            //}
+            /*else
+            {
+                sql = "insert into Transactions(Customer_name,Amount,Type,Customer_id,Date,Product) values ('" + cust_name + "'," + (amt) + "," + type + "," + cust_id + ",'" + date + "','" + ds2.Tables[0].Rows[comboBox3.SelectedIndex]["Name"].ToString() + "')";
+               command = new SQLiteCommand(sql, MainScreen.m_dbConnection);
+                command.ExecuteNonQuery();
+
+            }*/
+
+           
         }
 
         private void load(object sender, EventArgs e)

@@ -67,6 +67,12 @@
     <Compile Include="Add Transaction.Designer.cs">
       <DependentUpon>Add Transaction.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddCollection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCollection.Designer.cs">
+      <DependentUpon>AddCollection.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,18 @@
     </Compile>
     <Compile Include="AddProduct.Designer.cs">
       <DependentUpon>AddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddRoute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRoute.Designer.cs">
+      <DependentUpon>AddRoute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSalesman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSalesman.Designer.cs">
+      <DependentUpon>AddSalesman.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerTransaction.cs">
       <SubType>Form</SubType>
@@ -105,6 +123,12 @@
     <Compile Include="TranscationsView.Designer.cs">
       <DependentUpon>TranscationsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewCollections.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewCollections.Designer.cs">
+      <DependentUpon>ViewCollections.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,11 +138,20 @@
     <EmbeddedResource Include="Add Transaction.resx">
       <DependentUpon>Add Transaction.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddCollection.resx">
+      <DependentUpon>AddCollection.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddCustomer.resx">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRoute.resx">
+      <DependentUpon>AddRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSalesman.resx">
+      <DependentUpon>AddSalesman.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerTransaction.resx">
       <DependentUpon>CustomerTransaction.cs</DependentUpon>
@@ -140,6 +173,9 @@
     </Compile>
     <EmbeddedResource Include="TranscationsView.resx">
       <DependentUpon>TranscationsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewCollections.resx">
+      <DependentUpon>ViewCollections.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewCustomers.resx">
       <DependentUpon>ViewCustomers.cs</DependentUpon>

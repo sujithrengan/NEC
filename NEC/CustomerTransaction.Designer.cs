@@ -47,7 +47,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(420, 34);
+            this.dateTimePicker2.Location = new System.Drawing.Point(508, 34);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(143, 20);
             this.dateTimePicker2.TabIndex = 1;
@@ -58,10 +58,11 @@
             this.listView_customers.GridLines = true;
             this.listView_customers.Location = new System.Drawing.Point(15, 64);
             this.listView_customers.Name = "listView_customers";
-            this.listView_customers.Size = new System.Drawing.Size(548, 270);
+            this.listView_customers.Size = new System.Drawing.Size(635, 270);
             this.listView_customers.TabIndex = 3;
             this.listView_customers.UseCompatibleStateImageBehavior = false;
             this.listView_customers.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView_customers_ColumnClick_1);
+            this.listView_customers.DoubleClick += new System.EventHandler(this.onclick);
             // 
             // label1
             // 
@@ -75,7 +76,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(227, 41);
+            this.label2.Location = new System.Drawing.Point(278, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 13);
             this.label2.TabIndex = 5;
@@ -85,7 +86,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(264, 20);
+            this.label3.Location = new System.Drawing.Point(315, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 39);
             this.label3.TabIndex = 6;
@@ -93,7 +94,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(542, 5);
+            this.button1.Location = new System.Drawing.Point(630, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(20, 20);
             this.button1.TabIndex = 7;
@@ -104,7 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 346);
+            this.ClientSize = new System.Drawing.Size(663, 346);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

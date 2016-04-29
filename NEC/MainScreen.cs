@@ -15,9 +15,9 @@ namespace NEC
     {
         public static SQLiteConnection m_dbConnection;
         public void DatabaseConnect()
-        {
-            //m_dbConnection = new SQLiteConnection("Data Source="+Application.StartupPath.ToString()+"\\DB\\DatabaseName.db;Version=3;");
-            m_dbConnection = new SQLiteConnection("Data Source=C:\\NEC\\DB\\DatabaseName.db;Version=3;");
+        { 
+            m_dbConnection = new SQLiteConnection("Data Source="+Application.StartupPath.ToString()+"\\DB\\DatabaseName.db;Version=3;");
+           // m_dbConnection = new SQLiteConnection("Data Source=C:\\NEC\\DB\\DatabaseName.db;Version=3;");
             //MessageBox.Show("Data Source=" + Application.StartupPath.ToString() + "\\DB\\DatabaseName.db;Version=3;");
             m_dbConnection.Open();
         }
@@ -52,6 +52,27 @@ namespace NEC
         private void view_transactions_Click(object sender, EventArgs e)
         {
             new TranscationsView().Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new AddSalesman().Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new AddRoute().Show();
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new AddCollection().Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new ViewCollections().Show();
         }
 
         

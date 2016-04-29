@@ -15,6 +15,8 @@ namespace NEC
     public partial class TranscationsView : Form
     {
         DataSet ds;
+        int total_c = 0;
+        int total_d = 0;
         int total = 0;
         public TranscationsView()
         {
@@ -29,6 +31,8 @@ namespace NEC
                 //MessageBox.Show(reader["sum"].ToString());
                 label3.Text = reader["sum"].ToString();
             }
+            label7.Text = "*";
+            label6.Text = "*";
 
             listView1.View = View.Details;
             listView1.GridLines = true;
@@ -102,23 +106,25 @@ namespace NEC
             
             SQLiteCommand command = new SQLiteCommand(sql, MainScreen.m_dbConnection);
             SQLiteDataReader reader = command.ExecuteReader();
-            total = 0;
+            total =total_c=total_d=0;
             while (reader.Read())
             {
                 //MessageBox.Show("Name:" + reader["Name"] + "\tContact: " + reader["Contact"], "List", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Asterisk);
                 arr[0] = reader["ID"].ToString();
                 arr[1] = reader["Customer_name"].ToString();
                 arr[2] = reader["Type"].ToString();
-                if (arr[2] == "1") arr[2] = "Credit";
-                else arr[2] = "Debit";
-                arr[4] = reader["Date"].ToString();
                 arr[5] = reader["Amount"].ToString();
+                if (arr[2] == "1") { arr[2] = "Credit"; total_c += Int32.Parse(arr[5]); }
+                else { arr[2] = "Debit"; total_d += Int32.Parse(arr[5]); }
+                arr[4] = reader["Date"].ToString();
                 arr[3] = reader["Product"].ToString();
                 total += Int32.Parse(arr[5]);
                 itm = new ListViewItem(arr);
                 listView1.Items.Add(itm);
             }
             label3.Text = total.ToString();
+            label6.Text = total_c.ToString();
+            label7.Text = total_d.ToString();
         }
 
         
@@ -137,23 +143,25 @@ namespace NEC
             
             SQLiteCommand command = new SQLiteCommand(sql, MainScreen.m_dbConnection);
             SQLiteDataReader reader = command.ExecuteReader();
-            total = 0;
+            total = total_c = total_d = 0;
             while (reader.Read())
             {
                 //MessageBox.Show("Name:" + reader["Name"] + "\tContact: " + reader["Contact"], "List", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Asterisk);
                 arr[0] = reader["ID"].ToString();
                 arr[1] = reader["Customer_name"].ToString();
                 arr[2] = reader["Type"].ToString();
-                if (arr[2] == "1") arr[2] = "Credit";
-                else arr[2] = "Debit";
-                arr[4] = reader["Date"].ToString();
                 arr[5] = reader["Amount"].ToString();
+                if (arr[2] == "1") { arr[2] = "Credit"; total_c += Int32.Parse(arr[5]); }
+                else { arr[2] = "Debit"; total_d += Int32.Parse(arr[5]); }
+                arr[4] = reader["Date"].ToString();
                 arr[3] = reader["Product"].ToString();
                 total += Int32.Parse(arr[5]);
                 itm = new ListViewItem(arr);
                 listView1.Items.Add(itm);
             }
             label3.Text = total.ToString();
+            label6.Text = total_c.ToString();
+            label7.Text = total_d.ToString();
         }
 
         private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -223,24 +231,25 @@ namespace NEC
                 sql = "select * from Transactions where " + "Date>='" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'" + " and Date<='" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'";
             SQLiteCommand command = new SQLiteCommand(sql, MainScreen.m_dbConnection);
             SQLiteDataReader reader = command.ExecuteReader();
-            total = 0;
+            total =total_c=total_d=0;
             while (reader.Read())
             {
                 //MessageBox.Show("Name:" + reader["Name"] + "\tContact: " + reader["Contact"], "List", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Asterisk);
                 arr[0] = reader["ID"].ToString();
                 arr[1] = reader["Customer_name"].ToString();
                 arr[2] = reader["Type"].ToString();
-                if (arr[2] == "1") arr[2] = "Credit";
-                else arr[2] = "Debit";
-                arr[4] = reader["Date"].ToString();
                 arr[5] = reader["Amount"].ToString();
+                if (arr[2] == "1") { arr[2] = "Credit"; total_c += Int32.Parse(arr[5]); }
+                else { arr[2] = "Debit"; total_d += Int32.Parse(arr[5]); }
+                arr[4] = reader["Date"].ToString();
                 arr[3] = reader["Product"].ToString();
                 total += Int32.Parse(arr[5]);
                 itm = new ListViewItem(arr);
                 listView1.Items.Add(itm);
             }
             label3.Text = total.ToString();
-              
+            label6.Text = total_c.ToString();
+            label7.Text = total_d.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -16,5 +16,8 @@ F:\Projects\NeptuneElectric\NEC\obj\x86\Debug\NEC.ViewTransactions.resources
 F:\Projects\NeptuneElectric\NEC\obj\x86\Debug\NEC.csproj.GenerateResource.Cache
 F:\Projects\NeptuneElectric\NEC\obj\x86\Debug\NEC.exe
 F:\Projects\NeptuneElectric\NEC\obj\x86\Debug\NEC.pdb
-F:\Projects\NeptuneElectric\NEC\obj\x86\Debug\NEC.csprojResolveAssemblyReference.cache
 F:\Projects\NeptuneElectric\NEC\obj\x86\Debug\NEC.EditTransaction.resources
+F:\Projects\NeptuneElectric\NEC\obj\x86\Debug\NEC.AddSalesman.resources
+F:\Projects\NeptuneElectric\NEC\obj\x86\Debug\NEC.AddRoute.resources
+F:\Projects\NeptuneElectric\NEC\obj\x86\Debug\NEC.AddCollection.resources
+F:\Projects\NeptuneElectric\NEC\obj\x86\Debug\NEC.ViewCollections.resources

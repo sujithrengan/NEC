@@ -13,9 +13,8 @@ namespace NEC
 {
     public partial class ViewTransactions : Form
     {
-        public ViewTransactions()
+        public void setData()
         {
-            InitializeComponent();
             listView_customers.View = View.Details;
             listView_customers.GridLines = true;
             listView_customers.FullRowSelect = true;
@@ -41,13 +40,18 @@ namespace NEC
                 itm = new ListViewItem(arr);
                 listView_customers.Items.Add(itm);
             }
+        }
+        public ViewTransactions()
+        {
+            InitializeComponent();
 
+            setData();
         }
 
         private void onclick(object sender, EventArgs e)
         {
             //MessageBox.Show(listView_customers.SelectedItems[0].SubItems[2].Text);
-            CustomerTransaction ct = new CustomerTransaction(Int32.Parse(listView_customers.SelectedItems[0].SubItems[2].Text), listView_customers.SelectedItems[0].SubItems[0].Text, Int32.Parse(listView_customers.SelectedItems[0].SubItems[1].Text));
+            CustomerTransaction ct = new CustomerTransaction(this,Int32.Parse(listView_customers.SelectedItems[0].SubItems[2].Text), listView_customers.SelectedItems[0].SubItems[0].Text, Int32.Parse(listView_customers.SelectedItems[0].SubItems[1].Text));
             ct.Show();
         }
 

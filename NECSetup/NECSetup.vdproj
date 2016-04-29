@@ -15,38 +15,32 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_30744C04A52A00DD75FD1EA247D246D4"
-        "OwnerKey" = "8:_FFE6F99F8C1F44DBAD687FB721217E8D"
+        "MsmKey" = "8:_084F5F1DB5B8488D80B8BF05F0AAF9C4"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_5105EEE97B6E4EBA85474FF287B89801"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_30744C04A52A00DD75FD1EA247D246D4"
+        "OwnerKey" = "8:_084F5F1DB5B8488D80B8BF05F0AAF9C4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_8D8F70A6BD18D128EE16AD547B751069"
-        "OwnerKey" = "8:_FFE6F99F8C1F44DBAD687FB721217E8D"
+        "OwnerKey" = "8:_084F5F1DB5B8488D80B8BF05F0AAF9C4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_A5560714A1CD117727D079FD366EE9D9"
-        "OwnerKey" = "8:_FFE6F99F8C1F44DBAD687FB721217E8D"
+        "OwnerKey" = "8:_084F5F1DB5B8488D80B8BF05F0AAF9C4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_C0DAE939C0F0AE04ABE7E74718606F1F"
-        "OwnerKey" = "8:_FFE6F99F8C1F44DBAD687FB721217E8D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_FFE6F99F8C1F44DBAD687FB721217E8D"
-        "OwnerKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_084F5F1DB5B8488D80B8BF05F0AAF9C4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -58,7 +52,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FFE6F99F8C1F44DBAD687FB721217E8D"
+        "OwnerKey" = "8:_084F5F1DB5B8488D80B8BF05F0AAF9C4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -97,6 +91,27 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -113,6 +128,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -171,26 +194,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5105EEE97B6E4EBA85474FF287B89801"
-            {
-            "SourcePath" = "8:C:\\Users\\HP\\Desktop\\DatabaseName.db"
-            "TargetName" = "8:DatabaseName.db"
-            "Tag" = "8:"
-            "Folder" = "8:_3C328ACD7EFB4C9EB3628EB862658E65"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:TRUE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8D8F70A6BD18D128EE16AD547B751069"
@@ -324,17 +327,6 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_3C328ACD7EFB4C9EB3628EB862658E65"
-                    {
-                    "Name" = "8:DB"
-                    "AlwaysCreate" = "11:TRUE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_DA264B2FDF3E4204BCF93DB9179862BD"
-                        "Folders"
-                        {
-                        }
-                    }
                 }
             }
         }
@@ -353,9 +345,9 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:NEC"
-        "ProductCode" = "8:{188134B5-26F4-42DE-9DC0-50895F313791}"
-        "PackageCode" = "8:{88580E50-7E2A-4F49-8286-5BAF5385757B}"
-        "UpgradeCode" = "8:{B5866B97-3FA5-435B-BDC6-FA900D1AC7B3}"
+        "ProductCode" = "8:{5DB0CAE8-7D16-4031-8BD0-7FC469AC5F49}"
+        "PackageCode" = "8:{3A8D38AB-3050-4C72-B401-3A07346AFF8F}"
+        "UpgradeCode" = "8:{596EACF5-3DF2-421E-9F7E-63DFBC30963B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
@@ -474,7 +466,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_84A84F5463E045D2BF447322077EE792"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6A6F271E3E344A099D6EE76352B6E130"
             {
             "Name" = "8:NEC"
             "Arguments" = "8:"
@@ -482,7 +474,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_FFE6F99F8C1F44DBAD687FB721217E8D"
+            "Target" = "8:_084F5F1DB5B8488D80B8BF05F0AAF9C4"
             "Folder" = "8:_9658BA07B1094DBD8FAE3759D3E93D58"
             "WorkingFolder" = "8:_D1D37AC8FE5D4FF9BB249F9F5F9A2EA1"
             "Icon" = "8:"
@@ -887,7 +879,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_FFE6F99F8C1F44DBAD687FB721217E8D"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_084F5F1DB5B8488D80B8BF05F0AAF9C4"
             {
             "SourcePath" = "8:..\\NEC\\obj\\x86\\Debug\\NEC.exe"
             "TargetName" = "8:"

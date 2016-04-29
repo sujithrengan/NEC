@@ -14,19 +14,62 @@ namespace NEC
 {
     public partial class CustomerTransaction : Form
     {
-        int cid;
-        string cname;
-        int total=0;
-        public CustomerTransaction(int Cust_ID,string name,int total)
+        public int cid;
+        public string cname;
+        public int total=0;
+        public ViewTransactions vForm;
+
+        public void setData()
+        {
+
+            listView_customers.Items.Clear();
+            string[] arr = new string[6];
+            ListViewItem itm;
+
+            if (MainScreen.m_dbConnection.State == ConnectionState.Closed)
+                MainScreen.m_dbConnection.Open();
+            string sql = "select * from Transactions where Customer_id=" + cid + "";
+            SQLiteCommand command = new SQLiteCommand(sql, MainScreen.m_dbConnection);
+            SQLiteDataReader reader = command.ExecuteReader();
+
+            total = 0;
+            while (reader.Read())
+            {
+                //MessageBox.Show("Name:" + reader["Name"] + "\tContact: " + reader["Contact"], "List", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Asterisk);
+                arr[0] = reader["ID"].ToString();
+                //refid = Int32.Parse(arr[0]);
+                arr[1] = reader["Type"].ToString();
+                //type = Int32.Parse(arr[1]);
+                if (arr[1] == "1") arr[1] = "Credit";
+                else arr[1] = "Debit";
+                arr[3] = reader["Date"].ToString();
+                arr[4] = reader["Amount"].ToString();
+                total += Int32.Parse(arr[4]);
+                arr[2] = reader["Product"].ToString();
+                arr[5] = reader["Remarks"].ToString();
+                itm = new ListViewItem(arr);
+                listView_customers.Items.Add(itm);
+                //amt = Int32.Parse(arr[4]);
+
+                //product = arr[2];
+                //date = arr[3];
+            }
+
+            label3.Text = total.ToString();
+        }
+        public CustomerTransaction(ViewTransactions vForm,int Cust_ID,string name,int total)
         {
             this.total=total;
             this.cname=name;
+            this.vForm = vForm;
             cid = Cust_ID;
             InitializeComponent();
+
+            
             listView_customers.View = View.Details;
             listView_customers.GridLines = true;
             listView_customers.FullRowSelect = true;
-            label1.Text = name;
+            label1.Text = cname;
             label3.Text = total.ToString();
             //Add column header
             listView_customers.Columns.Add("Ref. No", 80);
@@ -34,43 +77,27 @@ namespace NEC
             listView_customers.Columns.Add("Product", 150);
             listView_customers.Columns.Add("Date", 140);
             listView_customers.Columns.Add("Amount", 160);
-
-            string[] arr = new string[5];
-            ListViewItem itm;
-
-            if (MainScreen.m_dbConnection.State == ConnectionState.Closed)
-                MainScreen.m_dbConnection.Open();
-            string sql = "select * from Transactions where Customer_id="+Cust_ID+"";
-            SQLiteCommand command = new SQLiteCommand(sql, MainScreen.m_dbConnection);
-            SQLiteDataReader reader = command.ExecuteReader();
-            
-            while (reader.Read())
-            {
-                //MessageBox.Show("Name:" + reader["Name"] + "\tContact: " + reader["Contact"], "List", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Asterisk);
-                arr[0] = reader["ID"].ToString();
-                arr[1] = reader["Type"].ToString();
-                if (arr[1] == "1") arr[1] = "Credit";
-                else arr[1] = "Debit";
-                arr[3] = reader["Date"].ToString();
-                arr[4] = reader["Amount"].ToString();
-                arr[2] = reader["Product"].ToString();
-                itm = new ListViewItem(arr);
-                listView_customers.Items.Add(itm);
-            }
+            listView_customers.Columns.Add("Remarks", 200);
+            setData();
            
 
         }
 
         private void onclick(object sender, EventArgs e)
         {
-            MessageBox.Show(listView_customers.SelectedItems[0].SubItems[2].Text);
+            //MessageBox.Show(listView_customers.SelectedItems[0].SubItems[2].Text);
+            int type;
+            if (listView_customers.SelectedItems[0].SubItems[1].Text == "Credit") type = 1;
+            else
+                type = -1;
+            new EditTransaction(this, vForm, Int32.Parse(listView_customers.SelectedItems[0].SubItems[0].Text), Int32.Parse(listView_customers.SelectedItems[0].SubItems[4].Text), type, listView_customers.SelectedItems[0].SubItems[3].Text, listView_customers.SelectedItems[0].SubItems[2].Text, listView_customers.SelectedItems[0].SubItems[5].Text).Show();        
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             
             listView_customers.Items.Clear();
-            string[] arr = new string[5];
+            string[] arr = new string[6];
             ListViewItem itm;
             string sql = "select * from Transactions where Customer_id=" + cid + " and Date>='" + dateTimePicker1.Value.ToString("yyyy-MM-dd")+"'"+" and Date<='" + dateTimePicker2.Value.ToString("yyyy-MM-dd")+"'" ;
             SQLiteCommand command = new SQLiteCommand(sql, MainScreen.m_dbConnection);
@@ -86,6 +113,7 @@ namespace NEC
                 arr[3] = reader["Date"].ToString();
                 arr[4] = reader["Amount"].ToString();
                 arr[2] = reader["Product"].ToString();
+                arr[5] = reader["Remarks"].ToString();
                 total += Int32.Parse(arr[4]);
                 itm = new ListViewItem(arr);
                 listView_customers.Items.Add(itm);
@@ -96,7 +124,7 @@ namespace NEC
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             listView_customers.Items.Clear();
-            string[] arr = new string[5];
+            string[] arr = new string[6];
             ListViewItem itm;
             string sql = "select * from Transactions where Customer_id=" + cid + " and Date>='" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'" + " and Date<='" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'";
             SQLiteCommand command = new SQLiteCommand(sql, MainScreen.m_dbConnection);
@@ -112,6 +140,7 @@ namespace NEC
                 arr[3] = reader["Date"].ToString();
                 arr[4] = reader["Amount"].ToString();
                 arr[2] = reader["Product"].ToString();
+                arr[5] = reader["Remarks"].ToString();
                 total += Int32.Parse(arr[4]);
                 itm = new ListViewItem(arr);
                 listView_customers.Items.Add(itm);
@@ -225,6 +254,8 @@ namespace NEC
             private int column;
             private SortOrder sortOrder;
         }
+
+       
 
     }
 }

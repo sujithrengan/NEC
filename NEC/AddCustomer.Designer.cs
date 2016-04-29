@@ -1,4 +1,4 @@
-﻿namespace NEC
+﻿ namespace NEC
 {
     partial class AddCustomer
     {
