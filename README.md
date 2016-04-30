@@ -1,2 +1,2 @@
 # NEC
-Basic C# Form App 
+Minimal C# Accounting app
